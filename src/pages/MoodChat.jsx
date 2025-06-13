@@ -1,10 +1,29 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { askGemini } from '../lib/gemini';
 
 const characters = [
-    { id: '1', name: 'clara', mood: 'calm', themeColor: 'is-info' },
-    { id: '2', name: 'ignis', mood: 'inspirational', themeColor: 'is-warning' },
-    { id: '3', name: 'wiley', mood: 'witty', themeColor: 'is-primary' },
+    {
+        id: '1',
+        name: 'clara',
+        mood: 'calm',
+        themeColor: 'is-info',
+        prompt: 'calm, gentle, wise, supportive, kind, positive, clear, slow-paced, friendly tone',
+    },
+    {
+        id: '2',
+        name: 'ignis',
+        mood: 'inspirational',
+        themeColor: 'is-warning',
+        prompt: 'inspirational, energetic, motivating, passionate, optimistic, encouraging, uplifting',
+    },
+    {
+        id: '3',
+        name: 'wiley',
+        mood: 'witty',
+        themeColor: 'is-primary',
+        prompt: 'witty, clever, humorous, sharp, playful, quick-thinking, sarcastic but friendly',
+    },
 ];
 
 export default function MoodChat() {
@@ -26,23 +45,16 @@ export default function MoodChat() {
         setMessages((prev) => [...prev, userMessage]);
         setInput('');
 
+        const replyText = await askGemini(
+            `Respond to: ${input}, roleplaying as character: ${character.prompt}.`,
+        );
+
         // mock AI message
         const aiMessage = {
             from: 'ai',
-            text: `(${character.mood} ${character.name}'s reply coming soon...)`,
+            text: replyText,
         };
         setMessages((prev) => [...prev, aiMessage]);
-
-        // const response = await fetch('/api/chat', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({ message: input, mood: character.mood }),
-        // });
-
-        // const data = await response.json();
-
-        // const aiMessage = { from: 'ai', text: data.reply || '...' };
-        // setMessages((prev) => [...prev, aiMessage]);
     };
 
     const handleKeyDown = (e) => {
