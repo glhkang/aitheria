@@ -46,7 +46,7 @@ export default function MoodChat() {
         setInput('');
 
         const replyText = await askGemini(
-            `Respond to: ${input}, roleplaying: ${character.prompt}, AIM-style. `,
+            `Short, chat-like response to: ${input}, roleplaying: ${character.prompt}. Finish full thought.`,
         );
 
         const aiMessage = {
@@ -77,7 +77,7 @@ export default function MoodChat() {
         <section className={`section ${character.themeColor}`}>
             <div className='container'>
                 <h1 className='title has-text-white'>
-                    chat with {character.mood} {character.name}
+                    interact with {character.mood} {character.name}
                 </h1>
 
                 <div className='box'>
