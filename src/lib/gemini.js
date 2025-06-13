@@ -6,7 +6,7 @@ export async function askGemini(prompt) {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
     const result = await model.generateContent({
         contents: [{ role: UserActivation, parts: [{ text: prompt }] }],
-        generateconfirt: {
+        generationConfig: {
             maxOutputTokens: 80,
             temperature: 1.7,
         },
