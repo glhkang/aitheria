@@ -49,7 +49,6 @@ export default function MoodChat() {
             `Respond to: ${input}, roleplaying as character: ${character.prompt}.`,
         );
 
-        // mock AI message
         const aiMessage = {
             from: 'ai',
             text: replyText,
