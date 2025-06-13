@@ -54,6 +54,14 @@ export default function MoodChat() {
             text: replyText,
         };
         setMessages((prev) => [...prev, aiMessage]);
+
+        /* TO TEST WITHOUT GEMINI
+        const aiMessage = {
+            from: 'ai',
+            text: `(${character.mood} reply coming soon...)`,
+        };
+        setMessages((prev) => [...prev, aiMessage]);
+        */
     };
 
     const handleKeyDown = (e) => {
