@@ -15,7 +15,7 @@ const characters = [
         name: 'ignis',
         mood: 'inspirational',
         animation:
-            'https://lottie.host/67ab7480-3990-4f13-af31-700500da4c70/5lDFoQsepp.lottie',
+            'https://lottie.host/6fb7c6de-ad77-444e-b7df-11610774f800/pJeHF4Xqh5.lottie',
     },
     {
         id: 3,
