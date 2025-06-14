@@ -43,17 +43,34 @@ export default function MoodChat() {
         if (!input.trim()) return;
 
         const userMessage = { from: 'user', text: input };
-        setMessages((prev) => [...prev, userMessage]);
+        const updatedMessages = [...messages, userMessage];
+        setMessages(updatedMessages);
         setInput('');
 
-        const replyText = await askGemini(
-            `Short, chat-like response to: ${input}, roleplaying: ${character.prompt}. Finish full thought.`,
-        );
+        const recentHistory = updatedMessages
+            .slice(-10)
+            .map((msg) =>
+                msg.from === 'user'
+                    ? `User: ${msg.text}`
+                    : `Gemini: ${msg.text}`,
+            )
+            .join('\n');
+
+        const chatSoFar = recentHistory
+            ? `this chat:\n"${recentHistory}"\n`
+            : `User: ${input}\nGemini:`;
+
+        const prompt = `Short, chat-like response to ${chatSoFar}. You are: ${character.prompt}. Finish full thought.`;
+
+        console.log('this is the prompt!!!!', prompt);
+
+        const replyText = await askGemini(prompt.trim());
 
         const aiMessage = {
             from: 'ai',
             text: replyText,
         };
+
         setMessages((prev) => [...prev, aiMessage]);
 
         /* TO TEST WITHOUT GEMINI
