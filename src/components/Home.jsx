@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const characters = [
     {
@@ -14,14 +15,14 @@ const characters = [
         name: 'ignis',
         mood: 'inspirational',
         animation:
-            'https://lottie.host/9e703286-fd9d-4822-a35e-ed9df9d92476/I1wKS4rk4H.lottie',
+            'https://lottie.host/67ab7480-3990-4f13-af31-700500da4c70/5lDFoQsepp.lottie',
     },
     {
         id: 3,
         name: 'wiley',
         mood: 'witty',
         animation:
-            'https://lottie.host/6a209d32-2841-4f79-b25f-23868823b277/bYnapZwXwA.lottie',
+            'https://lottie.host/2be9539c-3657-4ec5-aa45-f2f3897f9b28/7Y8k3jZgT8.lottie',
     },
 ];
 
