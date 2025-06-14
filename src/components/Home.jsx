@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
@@ -45,10 +45,12 @@ export default function Home() {
                 <DotLottieReact
                     key={index}
                     src={animation}
-                    // background='transparent'
-                    // speed='1'
-                    style={{ width: '200px', height: '200px' }}
-                    loop={'true'}
+                    style={{
+                        width: '200px',
+                        height: '200px',
+                        objectFit: 'contain',
+                    }}
+                    loop
                     autoplay
                 />
                 <button className='button' onClick={next}></button>
