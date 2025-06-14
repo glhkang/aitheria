@@ -97,17 +97,17 @@ export default function MoodChat() {
         <section
             // className={`section ${character.themeColor}`}
             className='section'
-            style={{
-                height: '100vh',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-            }}
+            // style={{
+            //     height: '100vh',
+            //     display: 'flex',
+            //     justifyContent: 'center',
+            //     alignItems: 'center',
+            //     width: '100%',
+            // }}
         >
             <div
                 className='container has-text-centered'
-                style={{ maxWidth: '600px' }}
+                style={{ maxWidth: '600px', margin: '0 auto' }}
             >
                 <h1 className='title has-text-white'>
                     {character.mood} {character.name} 💬
@@ -151,7 +151,7 @@ export default function MoodChat() {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        placeholder={`what do you want to talk to ${character.name} about?`}
+                        placeholder={`talk to ${character.name}...`}
                     ></textarea>
                     <button
                         className='button is-link mt-3 is-medium'

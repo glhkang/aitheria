@@ -18,10 +18,26 @@ export default function App() {
     }
 
     return (
-        <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/chat/:characterId' element={<MoodChat />} />
-        </Routes>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+            }}
+        >
+            <main
+                style={{
+                    flexGrow: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}
+            >
+                {' '}
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/chat/:characterId' element={<MoodChat />} />
+                </Routes>
             </main>
             <Footer />
         </div>

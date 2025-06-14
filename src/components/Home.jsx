@@ -44,13 +44,8 @@ export default function Home() {
 
     return (
         <section
-            className='section is-flex is-justify-content-center is-align-items-center'
-            style={{
-                minHeight: '100vh',
-                width: '100%',
-                margin: 0,
-                padding: 0,
-            }}
+            // className='section is-flex is-justify-content-center is-align-items-center'
+            className='section'
         >
             <div
                 className='box has-text-centered'
@@ -73,7 +68,6 @@ export default function Home() {
                         src={animation}
                         style={{
                             width: '600px',
-                            // height: '400px',
                             margin: '0 auto',
                         }}
                         loop
