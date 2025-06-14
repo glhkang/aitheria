@@ -26,19 +26,6 @@ const characters = [
 ];
 
 export default function Home() {
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src =
-            'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs';
-        script.type = 'module';
-        script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
-
     const [index, setIndex] = useState(0);
     const navigate = useNavigate();
 
@@ -54,16 +41,15 @@ export default function Home() {
             <h1 className='title'>mood</h1>
             <div className='button is-centered mb-4'>
                 <button className='button' onClick={prev}></button>
-                {/* TODO: fix animation not running */}
-                <dotlottie-player
+                <DotLottieReact
                     key={index}
                     src={animation}
-                    background='transparent'
-                    speed='1'
+                    // background='transparent'
+                    // speed='1'
                     style={{ width: '200px', height: '200px' }}
                     loop={'true'}
                     autoplay
-                ></dotlottie-player>
+                />
                 <button className='button' onClick={next}></button>
             </div>
             <p className='subtitle'>
