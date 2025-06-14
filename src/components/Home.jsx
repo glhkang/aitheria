@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faCircleChevronLeft,
+    faCircleChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 const characters = [
     {
@@ -63,17 +68,17 @@ export default function Home() {
                         <FontAwesomeIcon icon={faCircleChevronLeft} size='2x' />
                     </button>
 
-                <DotLottieReact
-                    key={index}
-                    src={animation}
-                    style={{
+                    <DotLottieReact
+                        key={index}
+                        src={animation}
+                        style={{
                             width: '600px',
                             // height: '400px',
                             margin: '0 auto',
-                    }}
-                    loop
-                    autoplay
-                />
+                        }}
+                        loop
+                        autoplay
+                    />
 
                     <button className='button is-ghost' onClick={next}>
                         <FontAwesomeIcon
@@ -81,15 +86,15 @@ export default function Home() {
                             size='2x'
                         />
                     </button>
-            </div>
+                </div>
 
                 <p className='subtitle is-size-4'>
-                {mood} {name}
-            </p>
+                    {mood} {name}
+                </p>
 
                 <button className='button is-link' onClick={select}>
-                select
-            </button>
+                    select
+                </button>
             </div>
         </section>
     );
