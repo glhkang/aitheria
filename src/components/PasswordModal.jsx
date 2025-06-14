@@ -12,14 +12,13 @@ const PasswordModal = ({ onAuthSuccess }) => {
             setShowModal(false);
             onAuthSuccess();
         }
-    }, []);
+    }, [onAuthSuccess]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const correctPassword = PORTFOLIO_PASSWORD;
 
         if (password === correctPassword) {
-            // sessionStorage.setItem('authed', true);
             sessionStorage.setItem('authenticated', true);
             setShowModal(false);
             onAuthSuccess();
