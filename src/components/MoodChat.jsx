@@ -62,8 +62,6 @@ export default function MoodChat() {
 
         const prompt = `Short, chat-like response to ${chatSoFar}. You are: ${character.prompt}. Finish full thought.`;
 
-        console.log('this is the prompt!!!!', prompt);
-
         const replyText = await askGemini(prompt.trim());
 
         const aiMessage = {
