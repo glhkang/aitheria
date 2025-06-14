@@ -61,7 +61,7 @@ export default function Home() {
                     margin: '0 auto',
                 }}
             >
-                <h1 className='title is-size-3 mb-3'>chat with:</h1>
+                <h1 className='title is-size-3 mb-3'>chat with</h1>
 
                 <div className='is-flex is-align-items-center mb-4'>
                     <button className='button is-ghost' onClick={prev}>
@@ -92,7 +92,7 @@ export default function Home() {
                     {mood} {name}
                 </p>
 
-                <button className='button is-link' onClick={select}>
+                <button className='button is-link is-medium' onClick={select}>
                     select
                 </button>
             </div>
