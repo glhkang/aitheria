@@ -96,43 +96,58 @@ export default function MoodChat() {
     if (!character) return <p>Character not found</p>;
 
     return (
-        <section className={`section ${character.themeColor}`}>
-            <div className='container'>
+        <section
+            className={`section ${character.themeColor}`}
+            style={{
+                height: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+            }}
+        >
+            <div
+                className='container has-text-centered'
+                style={{ maxWidth: '600px' }}
+            >
                 <h1 className='title has-text-white'>
                     {character.mood} {character.name} 💬
                 </h1>
 
-                <div className='box'>
-                    <div
-                        style={{
-                            maxHeight: '300px',
-                            overflowY: 'auto',
-                            marginBottom: '1rem',
-                        }}
-                    >
-                        {messages.map((msg, i) => (
-                            <div
-                                key={i}
-                                className={`notification is-${
-                                    msg.from === 'user' ? 'light' : 'dark'
-                                }`}
-                            >
-                                <strong>
-                                    {msg.from === 'user'
-                                        ? 'You'
-                                        : character.name}
-                                </strong>
-                                : {msg.text}
-                            </div>
-                        ))}
-                        <div ref={bottomRef} />
+                {messages.length > 0 && (
+                    <div className='box'>
+                        <div
+                            style={{
+                                maxHeight: '300px',
+                                overflowY: 'auto',
+                                marginBottom: '1rem',
+                            }}
+                        >
+                            {messages.map((msg, i) => (
+                                <div
+                                    key={i}
+                                    className={`notification is-${
+                                        msg.from === 'user' ? 'light' : 'dark'
+                                    }`}
+                                >
+                                    <strong>
+                                        {msg.from === 'user'
+                                            ? 'You'
+                                            : character.name}
+                                    </strong>
+                                    : {msg.text}
+                                </div>
+                            ))}
+                            <div ref={bottomRef} />
+                        </div>
                     </div>
-                </div>
+                )}
 
                 <div className='box'>
                     <textarea
                         className='textarea'
-                        rows='4'
+                        // style={{ maxWidth: '300px' }}
+                        rows='1'
                         maxLength={200}
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -140,7 +155,7 @@ export default function MoodChat() {
                         placeholder={`what do you want to talk to ${character.name} about?`}
                     ></textarea>
                     <button
-                        className='button is-dark mt-3'
+                        className='button is-link mt-3 is-medium'
                         onClick={handleSend}
                     >
                         send
@@ -148,7 +163,10 @@ export default function MoodChat() {
                 </div>
 
                 <div className='mb-4'>
-                    <button className='button' onClick={handleChangeCharacter}>
+                    <button
+                        className='button is-ghost is-size-7'
+                        onClick={handleChangeCharacter}
+                    >
                         change character
                     </button>
                 </div>
