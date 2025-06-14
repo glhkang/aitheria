@@ -99,7 +99,7 @@ export default function MoodChat() {
         <section className={`section ${character.themeColor}`}>
             <div className='container'>
                 <h1 className='title has-text-white'>
-                    interact with {character.mood} {character.name}
+                    {character.mood} {character.name} 💬
                 </h1>
 
                 <div className='box'>
@@ -149,7 +149,7 @@ export default function MoodChat() {
 
                 <div className='mb-4'>
                     <button className='button' onClick={handleChangeCharacter}>
-                        Change Character
+                        change character
                     </button>
                 </div>
             </div>
