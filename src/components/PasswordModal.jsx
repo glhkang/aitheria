@@ -34,7 +34,7 @@ const PasswordModal = ({ onAuthSuccess }) => {
         <div className='modal is-active'>
             <div className='modal-background' />
             <div
-                className='modal-card'
+                className='modal-card is-rounded-card'
                 style={{ maxWidth: '400px', margin: '0 auto' }}
             >
                 <section className='modal-card-body has-text-centered'>
