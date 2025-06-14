@@ -7,21 +7,21 @@ const characters = [
         id: '1',
         name: 'clara',
         mood: 'calm',
-        themeColor: 'is-info',
+        // themeColor: 'is-info',
         prompt: 'calm, gentle, wise, supportive, kind, positive, clear, slow-paced, friendly tone',
     },
     {
         id: '2',
         name: 'ignis',
         mood: 'inspirational',
-        themeColor: 'is-warning',
+        // themeColor: 'is-warning',
         prompt: 'inspirational, energetic, motivating, passionate, optimistic, encouraging, uplifting',
     },
     {
         id: '3',
         name: 'wiley',
         mood: 'witty',
-        themeColor: 'is-primary',
+        // themeColor: 'is-primary',
         prompt: 'witty, clever, humorous, sharp, playful, quick-thinking, sarcastic but friendly',
     },
 ];
@@ -95,7 +95,8 @@ export default function MoodChat() {
 
     return (
         <section
-            className={`section ${character.themeColor}`}
+            // className={`section ${character.themeColor}`}
+            className='section'
             style={{
                 height: '100vh',
                 display: 'flex',
