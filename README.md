@@ -1,6 +1,6 @@
 # 🧠 aitheria
 
-aitheria is a lightweightfrontend interface for exploring multi-character, mood-driven interactions with **google gemini**. designed for quick experimentation with **agentic ai architectures** and **prompt engineering** workflows.
+aitheria is a lightweight frontend interface for exploring multi-character, mood-driven interactions with **google gemini**. designed for quick experimentation with **agentic ai architectures** and **prompt engineering** workflows.
 
 ## ✨ features
 
@@ -43,7 +43,7 @@ npm run dev
 vite_api_key=your_google_api_key_here
 ```
 
-## 🧠 author’s intent
+## 🧠 developer's note
 
 built to show interest and capability in:
 
