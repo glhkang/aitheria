@@ -3,6 +3,7 @@ import { PORTFOLIO_PASSWORD } from '../config';
 
 const PasswordModal = ({ onAuthSuccess }) => {
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [showModal, setShowModal] = useState(true);
 
@@ -34,17 +35,24 @@ const PasswordModal = ({ onAuthSuccess }) => {
             <div className='modal-background' />
             <div className='modal-card'>
                 <section className='modal-card-body has-text-centered'>
-                    <h1 className='title is-4'>Enter Password</h1>
+                    <h1 className='title is-4'>enter password</h1>
                     <form onSubmit={handleSubmit}>
                         <input
                             className='input my-3'
-                            type='password'
+                            type={showPassword ? 'text' : 'password'}
                             placeholder='Password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        <button
+                            type='button'
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            style={{ marginLeft: '8px' }}
+                        >
+                            {showPassword ? 'hide' : 'show'}
+                        </button>
                         <button className='button is-primary' type='submit'>
-                            Enter
+                            enter
                         </button>
                         {error && (
                             <p className='has-text-danger mt-2'>{error}</p>
