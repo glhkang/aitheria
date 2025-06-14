@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { askGemini } from '../lib/gemini';
 
 const characters = [
@@ -27,6 +27,7 @@ const characters = [
 ];
 
 export default function MoodChat() {
+    const navigate = useNavigate();
     const { characterId } = useParams();
     const character = characters.find((c) => c.id === characterId);
 
@@ -69,6 +70,10 @@ export default function MoodChat() {
             e.preventDefault();
             handleSend();
         }
+    };
+
+    const handleChangeCharacter = () => {
+        navigate('/');
     };
 
     if (!character) return <p>Character not found</p>;
@@ -122,6 +127,12 @@ export default function MoodChat() {
                         onClick={handleSend}
                     >
                         send
+                    </button>
+                </div>
+
+                <div className='mb-4'>
+                    <button className='button' onClick={handleChangeCharacter}>
+                        Change Character
                     </button>
                 </div>
             </div>
