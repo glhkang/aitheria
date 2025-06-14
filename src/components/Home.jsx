@@ -38,30 +38,59 @@ export default function Home() {
     const { name, mood, animation } = characters[index];
 
     return (
-        <section className='section has-text-centered'>
-            <h1 className='title'>mood</h1>
-            <div className='button is-centered mb-4'>
-                <button className='button' onClick={prev}></button>
+        <section
+            className='section is-flex is-justify-content-center is-align-items-center'
+            style={{
+                minHeight: '100vh',
+                width: '100%',
+                margin: 0,
+                padding: 0,
+            }}
+        >
+            <div
+                className='box has-text-centered'
+                style={{
+                    maxWidth: '600px',
+                    width: '100%',
+                    padding: '3rem',
+                    margin: '0 auto',
+                }}
+            >
+                <h1 className='title is-size-3 mb-3'>chat with:</h1>
+
+                <div className='is-flex is-align-items-center mb-4'>
+                    <button className='button is-ghost' onClick={prev}>
+                        <FontAwesomeIcon icon={faCircleChevronLeft} size='2x' />
+                    </button>
+
                 <DotLottieReact
                     key={index}
                     src={animation}
                     style={{
-                        width: '200px',
-                        height: '200px',
-                        objectFit: 'contain',
+                            width: '600px',
+                            // height: '400px',
+                            margin: '0 auto',
                     }}
                     loop
                     autoplay
                 />
-                <button className='button' onClick={next}></button>
+
+                    <button className='button is-ghost' onClick={next}>
+                        <FontAwesomeIcon
+                            icon={faCircleChevronRight}
+                            size='2x'
+                        />
+                    </button>
             </div>
-            <p className='subtitle'>
+
+                <p className='subtitle is-size-4'>
                 {mood} {name}
             </p>
 
-            <button className='button is-primary mt-4' onClick={select}>
+                <button className='button is-link' onClick={select}>
                 select
             </button>
+            </div>
         </section>
     );
 }
