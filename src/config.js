@@ -1,0 +1,1 @@
+export const PORTFOLIO_PASSWORD = import.meta.env.VITE_PORTFOLIO_PASSWORD;
