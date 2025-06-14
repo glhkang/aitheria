@@ -33,30 +33,48 @@ const PasswordModal = ({ onAuthSuccess }) => {
     return (
         <div className='modal is-active'>
             <div className='modal-background' />
-            <div className='modal-card'>
+            <div
+                className='modal-card'
+                style={{ maxWidth: '400px', margin: '0 auto' }}
+            >
                 <section className='modal-card-body has-text-centered'>
-                    <h1 className='title is-4'>enter password</h1>
-                    <form onSubmit={handleSubmit}>
+                    <h1 className='title is-3'>enter password</h1>
+                    <form
+                        onSubmit={handleSubmit}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
                         <input
-                            className='input my-3'
+                            className='input'
                             type={showPassword ? 'text' : 'password'}
-                            placeholder='Password'
+                            placeholder='password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+
+                        {error && (
+                            <p className='has-text-danger mt-2 is-size-7'>
+                                {error}
+                            </p>
+                        )}
+
                         <button
                             type='button'
+                            className='button is-ghost is-size-7'
+                            style={{ marginTop: '0px', marginBottom: '10px' }}
                             onClick={() => setShowPassword((prev) => !prev)}
-                            style={{ marginLeft: '8px' }}
                         >
                             {showPassword ? 'hide' : 'show'}
                         </button>
-                        <button className='button is-primary' type='submit'>
+                        <button
+                            className='button is-link is-medium'
+                            type='submit'
+                        >
                             enter
                         </button>
-                        {error && (
-                            <p className='has-text-danger mt-2'>{error}</p>
-                        )}
                     </form>
                 </section>
             </div>
