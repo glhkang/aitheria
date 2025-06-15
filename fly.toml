@@ -8,6 +8,10 @@ primary_region = 'iad'
 
 [build]
 
+[build.args]
+  VITE_GEMINI_API_KEY = "$VITE_GEMINI_API_KEY"
+  VITE_PORTFOLIO_PASSWORD = "$VITE_PORTFOLIO_PASSWORD"
+  
 [http_service]
   internal_port = 80
   force_https = true
