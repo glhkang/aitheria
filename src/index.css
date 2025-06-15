@@ -67,5 +67,4 @@ button:focus-visible {
 
 .modal-card.is-rounded-card {
     border-radius: 6px;
-    /* Bulma's default radius */
     overflow: hidden; }
