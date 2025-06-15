@@ -13,15 +13,15 @@ aitheria is a lightweight frontend interface for exploring multi-character, mood
 
 ## 🛠️ tech stack
 
-| layer            | tech/tool                           |
-| ---------------- | ----------------------------------- |
-| framework        | `react 19`, `react router 7`        |
-| ai integration   | `@google/generative-ai` (gemini)    |
-| styling          | `bulma`, `flexbox`, `fontawesome`   |
-| animation        | `@lottiefiles/dotlottie-react`      |
-| build tool       | `vite`                              |
-| code quality     | `eslint`, `postcss`, `autoprefixer` |
-| deployment ready | supports `.env` config separation   |
+| layer          | tech/tool                                    |
+| -------------- | -------------------------------------------- |
+| framework      | `react 19`, `react router 7`                 |
+| ai integration | `@google/generative-ai` (gemini)             |
+| styling        | `bulma`, `flexbox`, `fontawesome`            |
+| animation      | `@lottiefiles/dotlottie-react`               |
+| build tool     | `vite`                                       |
+| code quality   | `eslint`, `postcss`, `autoprefixer`          |
+| deployment     | `Docker`. `Fly.io`, `.env` config separation |
 
 ## 👷 for agent/prompt/ai engineers
 
