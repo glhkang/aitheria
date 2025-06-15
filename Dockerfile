@@ -15,6 +15,7 @@ ARG VITE_PORTFOLIO_PASSWORD
 # Set the arguments as environment variables, making them accessible to the build script.
 ENV VITE_GEMINI_API_KEY=$VITE_GEMINI_API_KEY
 ENV VITE_PORTFOLIO_PASSWORD=$VITE_PORTFOLIO_PASSWORD
+ENV CACHE_BUSTER=1
 
 # Copy package.json and package-lock.json and install dependencies
 COPY package*.json ./
