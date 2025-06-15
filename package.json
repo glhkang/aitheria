@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "echo \"Build-time VITE_GEMINI_API_KEY is $VITE_GEMINI_API_KEY\" && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

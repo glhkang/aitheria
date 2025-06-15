@@ -1,45 +1,41 @@
-# syntax = docker/dockerfile:1
+# syntax=docker/dockerfile:1
 
-# Adjust NODE_VERSION as desired
-ARG NODE_VERSION=20.18.0
-FROM node:${NODE_VERSION}-slim AS base
+# --- Build Stage ---
+# This stage builds the React app using Node.js
+FROM node:20-slim AS build
 
-LABEL fly_launch_runtime="Vite"
-
-# Vite app lives here
+# Set the working directory in the container
 WORKDIR /app
 
-# Set production environment
-ENV NODE_ENV="production"
+# Define build-time arguments to be passed in from the 'fly deploy' command.
+# These must be passed with --build-arg
+ARG VITE_GEMINI_API_KEY
+ARG VITE_PORTFOLIO_PASSWORD
 
+# Set the arguments as environment variables, making them accessible to the build script.
+ENV VITE_GEMINI_API_KEY=$VITE_GEMINI_API_KEY
+ENV VITE_PORTFOLIO_PASSWORD=$VITE_PORTFOLIO_PASSWORD
 
-# Throw-away build stage to reduce size of final image
-FROM base AS build
+# Copy package.json and package-lock.json and install dependencies
+COPY package*.json ./
+RUN npm ci
 
-# Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
-
-# Install node modules
-COPY package-lock.json package.json ./
-RUN npm ci --include=dev
-
-# Copy application code
+# Copy the rest of the application source code
 COPY . .
 
-# Build application
+# Build the static assets for production
 RUN npm run build
 
-# Remove development dependencies
-RUN npm prune --omit=dev
 
+# --- Production Stage ---
+# This stage serves the built assets using a lightweight Nginx server
+FROM nginx:stable-alpine
 
-# Final stage for app image
-FROM nginx
-
-# Copy built application
+# Copy the built assets from the 'build' stage to the Nginx public directory
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Start the server by default, this can be overwritten at runtime
+# Expose port 80 for the web server
 EXPOSE 80
-CMD [ "/usr/sbin/nginx", "-g", "daemon off;" ]
+
+# The command to start Nginx when the container launches
+CMD ["nginx", "-g", "daemon off;"]
