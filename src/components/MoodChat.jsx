@@ -109,7 +109,7 @@ export default function MoodChat() {
                 className='container has-text-centered'
                 style={{ maxWidth: '600px', margin: '0 auto' }}
             >
-                <h1 className='title has-text-white'>
+                <h1 className='title has-text-grey-light'>
                     {character.mood} {character.name} 💬
                 </h1>
 
